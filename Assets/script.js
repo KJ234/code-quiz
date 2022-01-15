@@ -2,28 +2,36 @@ var StartBtn = document.getElementById("startButton");
 var title = document.querySelector("#title-section");
 var qtion = document.querySelector("#question");
 var row = document.querySelector(".show");
-var HighscoresButton = document.getElementById("Highscores");
+var HighscoresButton = document.getElementById("highscores");
 var choicesContainer = document.getElementById("choices");
 var timeEl = document.getElementById("time");
 var allElements = document.getElementById("container");
 var showTextAnswers = document.getElementById("feedback");
 var showWrongAnswers = document.getElementById("wrong");
+var storedScores = JSON.parse(localStorage.getItem("userData"));
 var highScoresArea = document.querySelector("#highScoresList");
+var removeEerything = document.querySelector(".row");
+
+var score = 0;
 
 var secondsLeft = 100;
+var timerInterval;
 
 function setTime() {
   // Sets interval in variable
-  var timerInterval = setInterval(function () {
+  timerInterval = setInterval(function () {
     secondsLeft--;
     timeEl.textContent = " Time: " + secondsLeft;
 
-    if (secondsLeft === 0) {
+    if (secondsLeft < 1) {
       // Stops execution of action at set interval
       clearInterval(timerInterval);
+      quizComplete();
     }
   }, 1000);
 }
+
+var currentQuestionIndex = 0;
 
 function StartQuiz() {
   StartBtn.style.display = "none";
@@ -50,7 +58,7 @@ function checkAnswer(event) {
     score = score + 7;
   } else {
     document.querySelector("#wrong").textContent = "Wrong ";
-    secondsLeft = secondsLeft - 30;
+    secondsLeft = secondsLeft - 25;
     score = score - 1;
   }
 
@@ -77,6 +85,44 @@ function createQuestion(question) {
 
     btn.addEventListener("click", checkAnswer);
   });
+}
+
+function renderingHighscores() {
+  renderQuestion();
+
+  var mainEl = $("#mainElement");
+  var scores = localStorage.getItem("scores");
+  var inputEl = $("<input id='initials'>");
+  var SubmitButtonEl = $("<button>" + "submit your score" + "</button>");
+
+  mainEl.append(inputEl);
+  mainEl.append(SubmitButtonEl);
+
+  SubmitButtonEl.on("click", function () {
+    var userInitials = inputEl.val();
+
+    if (scores) {
+      var parseHighscores = JSON.parse(scores);
+
+      parseHighscores.push({
+        intials: userInitials,
+        score: score,
+      });
+      localStorage.setItem("scores", JSON.stringify(parseHighscores));
+    } else {
+      localStorage.setItem("scores", JSON.stringify);
+    }
+  });
+}
+
+function quizComplete() {
+  // Setting the timer to stop when all questions are answered so that as above, the timer interval will be cleared just as it would if the timer had ran out
+  timeEl.textContent = 0;
+
+  // Updates text content when quiz complete
+  qtion.textContent = "Game Over!";
+  document.querySelector("#wrong").textContent = "Good Try";
+  renderingHighscores();
 }
 
 StartBtn.addEventListener("click", StartQuiz);
