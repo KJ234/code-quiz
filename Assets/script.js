@@ -33,10 +33,23 @@ function StartQuiz() {
 
   renderQuestion();
   setTime();
+  createQuestion();
 }
 
 function renderQuestion() {
   qtion.style.visibility = "visible";
+}
+
+function createQuestion(question) {
+  qtion.textContent = questions[currentQuestionIndex].title;
+  questions[currentQuestionIndex].choices.forEach(function (choice) {
+    var btn = document.createElement("button");
+    btn.textContent = choice;
+    choicesContainer.appendChild(btn);
+    btn.setAttribute("id", choice);
+
+    btn.addEventListener("click", checkAnswer);
+  });
 }
 
 StartBtn.addEventListener("click", StartQuiz);
