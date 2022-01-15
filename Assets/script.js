@@ -9,3 +9,10 @@ var allElements = document.getElementById("container");
 var showTextAnswers = document.getElementById("feedback");
 var showWrongAnswers = document.getElementById("wrong");
 var highScoresArea = document.querySelector("#highScoresList");
+
+function StartQuiz() {
+  StartBtn.style.display = "none";
+  row.style.display = "none";
+
+  console.log(questions);
+}
