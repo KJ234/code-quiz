@@ -1,0 +1,48 @@
+* {
+  color: rgb(71, 12, 128);
+}
+#time {
+  text-align: end;
+  font-weight: bolder;
+}
+
+#title-section {
+  text-align: center;
+  font-size: x-large;
+}
+
+#startButton {
+  width: 85px;
+  height: 40px;
+  background-color: rgb(71, 12, 128);
+  color: white;
+}
+
+button:hover {
+  opacity: 0.5;
+  background-color: rgb(71, 12, 128);
+}
+
+#question {
+  visibility: hidden;
+  text-align: center;
+  font-weight: bolder;
+  font-size: xx-large;
+  color: rgb(71, 12, 128);
+}
+
+#choices {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 100px;
+  margin-left: 48%;
+  font-size: xx-large;
+}
+#feedback {
+  visibility: hidden;
+}
+
+#wrong {
+  visibility: hidden;
+}
