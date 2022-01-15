@@ -16,3 +16,4 @@ function StartQuiz() {
 
   console.log(questions);
 }
+StartBtn.addEventListener("click", StartQuiz);
