@@ -32,12 +32,39 @@ function StartQuiz() {
   console.log(questions);
 
   renderQuestion();
-  setTime();
   createQuestion();
+  setTime();
 }
 
 function renderQuestion() {
   qtion.style.visibility = "visible";
+}
+
+function checkAnswer(event) {
+  var selectedButton = event.target.id;
+
+  var currentAnswer = questions[currentQuestionIndex].answer;
+
+  if (selectedButton === currentAnswer) {
+    document.querySelector("#wrong").textContent = "Correct";
+    score = score + 7;
+  } else {
+    document.querySelector("#wrong").textContent = "Wrong ";
+    secondsLeft = secondsLeft - 30;
+    score = score - 1;
+  }
+
+  nextQuestion(selectedButton);
+}
+
+function nextQuestion(selectedButton) {
+  currentQuestionIndex += 1;
+  choicesContainer.innerHTML = "";
+  if (selectedButton === questions[currentQuestionIndex].answer) {
+    showTextAnswers.style.visibility = "visible";
+  } else showWrongAnswers.style.visibility = "visible";
+
+  createQuestion();
 }
 
 function createQuestion(question) {
