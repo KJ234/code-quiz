@@ -45,4 +45,10 @@ button:hover {
 
 #wrong {
   visibility: hidden;
+  font-size: xx-large;
+  font-weight: bolder;
+  text-align: center;
+}
+#highscore {
+  visibility: hidden;
 }
