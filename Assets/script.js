@@ -24,12 +24,12 @@ function setTime() {
     }
   }, 1000);
 }
-setTime();
 
 function StartQuiz() {
   StartBtn.style.display = "none";
   row.style.display = "none";
 
   console.log(questions);
+  setTime();
 }
 StartBtn.addEventListener("click", StartQuiz);
