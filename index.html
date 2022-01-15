@@ -1,59 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Assets/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Coding Quiz</title>
-    <link rel="stylesheet" href="./Assets/style.css" />
-  </head>
-  <body>
-    <!--Creating a Highscore button-->
-    <div class="container">
+</head>
+<body>
+    <div class="container" id="mainElement">
         <header class="row">
-                <div id="finalScore"></div>
-                <input type="text" size = "40" placeholder="Enter you initials for high score" name="intials" id="initials"/>
-                <button id="submitScore">Submit Score</button>
+            <div id="Highscores">
+                <button id= "highscore">View Highscores</button>
+                <div id="highScoresList"></div>
+                
             </div>
-        </div>
-        <!--Title plus the time -->
-    </header>
-    <div id="time">Time: 100</div>
-    <section id="title-section" class="show">
-        <div class="row">
-            <div>
-                <h1>Coding Quiz Challenge</h1>
+        </header>
+                <div id="time">Time: 100</div>
+        <section id="title-section" class="show">
+            <div class="row">
+                <div>
+                    <h1>Coding Quiz Challenge</h1>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div>
-                <p>Try and answer the following code-related questions within the time limit. Keep in mind that
-                    incorrect answers will penalize your your score time by 10 seconds!</p>
+            <div class="row">
+                <div>
+                    <p>Try and answer the following code-related questions within the time limit. Keep in mind that
+                        incorrect answers will penalize your your score time by 10 seconds!</p>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div>
-                <button id="startButton">Start Quiz</button>
+            <div class="row">
+                <div>
+                    <button id="startButton">Start Quiz</button>
+                </div>
             </div>
-        </div>
-</section>
+        </section>
 
-<!-- Coding questions -->
-<section id="quiz-section" class="hide">
-<div class="row">
-    
-        <h3 id="question-title"></h3>
-        <div id = "question">This is the question</div>
+        <!-- Coding questions -->
+        <section id="quiz-section" class="hide">
+            <div class="row">
+                
+                    <h3 id="question-title"></h3>
+                    <div id = "question"></div>
+        
+            </div>
+            <div class="row">
+                <div id="choices"></div>
+                <div id="feedback" class="feedback hide">Correct</div>
+                <div id= "wrong">wrong</div>
+                
+            </div>
+        </section>
 
-</div>
-<div class="row">
-    <div id="choices"></div>
-    <div id="feedback" class="feedback hide">Correct</div>
-    <div id= "wrong">Wrong</div>
-    
-</div>
-</section>
-   
-    <script src="./Assets/script.js"></script>
-  </body>
+        <script src="./Assets/script.js"></script>
+        <script src="./questions.js"></script>
+
+</body>
 </html>
