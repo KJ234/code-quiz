@@ -10,6 +10,22 @@ var showTextAnswers = document.getElementById("feedback");
 var showWrongAnswers = document.getElementById("wrong");
 var highScoresArea = document.querySelector("#highScoresList");
 
+var secondsLeft = 100;
+
+function setTime() {
+  // Sets interval in variable
+  var timerInterval = setInterval(function () {
+    secondsLeft--;
+    timeEl.textContent = " Time: " + secondsLeft;
+
+    if (secondsLeft === 0) {
+      // Stops execution of action at set interval
+      clearInterval(timerInterval);
+    }
+  }, 1000);
+}
+setTime();
+
 function StartQuiz() {
   StartBtn.style.display = "none";
   row.style.display = "none";
