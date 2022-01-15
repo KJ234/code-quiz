@@ -30,6 +30,13 @@ function StartQuiz() {
   row.style.display = "none";
 
   console.log(questions);
+
+  renderQuestion();
   setTime();
 }
+
+function renderQuestion() {
+  qtion.style.visibility = "visible";
+}
+
 StartBtn.addEventListener("click", StartQuiz);
